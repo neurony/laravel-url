@@ -1,0 +1,55 @@
+{
+    "name": "zbiller/laravel-url",
+    "description": "Generate custom URLs for any Eloquent model (Laravel 5.7 and up).",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "url",
+        "custom",
+        "eloquent"
+    ],
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Andrei Badea",
+            "email": "zbiller@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "illuminate/contracts": "~5.7.0",
+        "illuminate/support": "~5.7.0",
+        "illuminate/database": "~5.7.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "~3.7.0",
+        "phpunit/phpunit": "~7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zbiller\\Url\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Zbiller\\Url\\Tests\\": "tests"
+        },
+        "classmap": [
+            "tests/TestCase.php"
+        ]
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Zbiller\\Url\\ServiceProvider"
+            ]
+        }
+    }
+}
