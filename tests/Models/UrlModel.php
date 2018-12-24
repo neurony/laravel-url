@@ -2,10 +2,10 @@
 
 namespace Zbiller\Url\Tests\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Zbiller\Url\Options\UrlOptions;
-use Zbiller\Url\Tests\Controllers\UrlsController;
 use Zbiller\Url\Traits\HasUrl;
+use Zbiller\Url\Options\UrlOptions;
+use Illuminate\Database\Eloquent\Model;
+use Zbiller\Url\Tests\Controllers\UrlsController;
 
 class UrlModel extends Model
 {

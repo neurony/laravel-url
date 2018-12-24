@@ -3,9 +3,9 @@
 namespace Zbiller\Url\Traits;
 
 use Closure;
+use Zbiller\Url\Options\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
 use Zbiller\Url\Exceptions\SlugException;
-use Zbiller\Url\Options\SlugOptions;
 
 trait HasSlug
 {
@@ -114,7 +114,7 @@ trait HasSlug
 
     /**
      * Make the given slug unique.
-     * 
+     *
      * @param string $slug
      * @return string
      */
@@ -124,7 +124,7 @@ trait HasSlug
         $i = 1;
 
         while ($this->slugAlreadyExists($slug) || $slug === '') {
-            $slug = $original . $this->slugOptions->slugSeparator . $i++;
+            $slug = $original.$this->slugOptions->slugSeparator.$i++;
         }
 
         return $slug;
@@ -189,7 +189,7 @@ trait HasSlug
      */
     protected function slugAlreadyExists($slug)
     {
-        return (bool)static::withoutGlobalScopes()->where($this->slugOptions->toField, $slug)
+        return (bool) static::withoutGlobalScopes()->where($this->slugOptions->toField, $slug)
             ->where($this->getKeyName(), '!=', $this->getKey() ?: '0')
             ->first();
     }
@@ -216,11 +216,11 @@ trait HasSlug
      */
     protected function validateSlugOptions()
     {
-        if (!$this->slugOptions->fromField) {
+        if (! $this->slugOptions->fromField) {
             throw SlugException::mandatoryFromField(static::class);
         }
 
-        if (!$this->slugOptions->toField) {
+        if (! $this->slugOptions->toField) {
             throw SlugException::mandatoryToField(static::class);
         }
     }

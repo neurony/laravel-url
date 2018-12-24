@@ -2,11 +2,11 @@
 
 namespace Zbiller\Url\Models;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Database\Eloquent\Builder;
 use Zbiller\Url\Contracts\UrlModelContract;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Url extends Model implements UrlModelContract
 {
@@ -92,8 +92,6 @@ class Url extends Model implements UrlModelContract
         if ($silent === false) {
             throw new ModelNotFoundException;
         }
-
-        return null;
     }
 
     /**

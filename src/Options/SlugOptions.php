@@ -69,7 +69,7 @@ class SlugOptions
         }
 
         throw new Exception(
-            'The property "' . $name . '" does not exist in class "' . static::class . '"'
+            'The property "'.$name.'" does not exist in class "'.static::class.'"'
         );
     }
 
@@ -78,7 +78,7 @@ class SlugOptions
      *
      * @return SlugOptions
      */
-    public static function instance(): SlugOptions
+    public static function instance(): self
     {
         return new static();
     }
@@ -89,7 +89,7 @@ class SlugOptions
      * @param string|array|callable $field
      * @return SlugOptions
      */
-    public function generateSlugFrom($field): SlugOptions
+    public function generateSlugFrom($field): self
     {
         if (is_string($field)) {
             $field = [$field];
@@ -106,7 +106,7 @@ class SlugOptions
      * @param string $field
      * @return SlugOptions
      */
-    public function saveSlugTo($field): SlugOptions
+    public function saveSlugTo($field): self
     {
         $this->toField = $field;
 
@@ -118,7 +118,7 @@ class SlugOptions
      *
      * @return SlugOptions
      */
-    public function allowDuplicateSlugs(): SlugOptions
+    public function allowDuplicateSlugs(): self
     {
         $this->uniqueSlugs = false;
 
@@ -131,7 +131,7 @@ class SlugOptions
      * @param string $separator
      * @return SlugOptions
      */
-    public function usingSeparator($separator): SlugOptions
+    public function usingSeparator($separator): self
     {
         $this->slugSeparator = $separator;
 
@@ -144,7 +144,7 @@ class SlugOptions
      * @param string $separator
      * @return SlugOptions
      */
-    public function usingLanguage($separator): SlugOptions
+    public function usingLanguage($separator): self
     {
         $this->slugLanguage = $separator;
 
@@ -156,7 +156,7 @@ class SlugOptions
      *
      * @return SlugOptions
      */
-    public function doNotGenerateSlugOnCreate(): SlugOptions
+    public function doNotGenerateSlugOnCreate(): self
     {
         $this->generateSlugOnCreate = false;
 
@@ -168,7 +168,7 @@ class SlugOptions
      *
      * @return SlugOptions
      */
-    public function doNotGenerateSlugOnUpdate(): SlugOptions
+    public function doNotGenerateSlugOnUpdate(): self
     {
         $this->generateSlugOnUpdate = false;
 
