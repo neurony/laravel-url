@@ -2,9 +2,9 @@
 
 namespace Zbiller\Url\Tests\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Zbiller\Url\Options\SlugOptions;
 use Zbiller\Url\Traits\HasSlug;
+use Zbiller\Url\Options\SlugOptions;
+use Illuminate\Database\Eloquent\Model;
 
 class SlugModel extends Model
 {

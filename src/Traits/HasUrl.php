@@ -3,13 +3,13 @@
 namespace Zbiller\Url\Traits;
 
 use Exception;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
-use Zbiller\Url\Exceptions\UrlException;
 use Zbiller\Url\Models\Url;
-use Zbiller\Url\Options\SlugOptions;
+use Illuminate\Support\Facades\DB;
 use Zbiller\Url\Options\UrlOptions;
+use Zbiller\Url\Options\SlugOptions;
+use Illuminate\Database\Eloquent\Model;
+use Zbiller\Url\Exceptions\UrlException;
+use Illuminate\Database\Eloquent\Builder;
 
 trait HasUrl
 {
@@ -98,8 +98,6 @@ trait HasUrl
         if ($this->url && $this->url->exists) {
             return url($this->url->url, [], $secure);
         }
-
-        return null;
     }
 
     /**
@@ -165,13 +163,13 @@ trait HasUrl
     {
         $this->initUrlOptions();
 
-        if (!$this->getAttribute($this->urlOptions->toField)) {
+        if (! $this->getAttribute($this->urlOptions->toField)) {
             return;
         }
 
         try {
             $this->url()->create([
-                'url' => $this->buildFullUrl()
+                'url' => $this->buildFullUrl(),
             ]);
         } catch (Exception $e) {
             throw UrlException::createFailed();
@@ -188,7 +186,7 @@ trait HasUrl
     {
         $this->initUrlOptions();
 
-        if (!$this->getAttribute($this->urlOptions->toField)) {
+        if (! $this->getAttribute($this->urlOptions->toField)) {
             return;
         }
 
@@ -199,7 +197,7 @@ trait HasUrl
                 }
 
                 $this->url()->update([
-                    'url' => $this->buildFullUrl()
+                    'url' => $this->buildFullUrl(),
                 ]);
 
                 if ($this->urlOptions->cascadeUpdate === true) {
@@ -242,7 +240,7 @@ trait HasUrl
 
         foreach ($children as $child) {
             $child->update([
-                'url' => str_replace($old . '/', $new . '/', $child->url)
+                'url' => str_replace($old.'/', $new.'/', $child->url),
             ]);
         }
     }
@@ -259,9 +257,9 @@ trait HasUrl
         $suffix = $this->buildUrlSegment('suffix');
 
         return
-            (str_is('/', $prefix) ? '' : ($prefix ? $prefix . $this->urlOptions->urlGlue : '')) .
-            $this->getAttribute($this->urlOptions->toField) .
-            (str_is('/', $suffix) ? '' : ($suffix ? $this->urlOptions->urlGlue . $suffix : ''));
+            (str_is('/', $prefix) ? '' : ($prefix ? $prefix.$this->urlOptions->urlGlue : '')).
+            $this->getAttribute($this->urlOptions->toField).
+            (str_is('/', $suffix) ? '' : ($suffix ? $this->urlOptions->urlGlue.$suffix : ''));
     }
 
     /**
@@ -279,7 +277,7 @@ trait HasUrl
             return '';
         }
 
-        $segment = $this->urlOptions->{'url' . ucwords($type)};
+        $segment = $this->urlOptions->{'url'.ucwords($type)};
 
         if (is_callable($segment)) {
             return call_user_func_array($segment, [[], $this]);
@@ -315,15 +313,15 @@ trait HasUrl
      */
     protected function validateUrlOptions()
     {
-        if (!$this->urlOptions->routeController || !$this->urlOptions->routeAction) {
+        if (! $this->urlOptions->routeController || ! $this->urlOptions->routeAction) {
             throw UrlException::mandatoryRouting(static::class);
         }
 
-        if (!$this->urlOptions->fromField) {
+        if (! $this->urlOptions->fromField) {
             throw UrlException::mandatoryFromField(static::class);
         }
 
-        if (!$this->urlOptions->toField) {
+        if (! $this->urlOptions->toField) {
             throw UrlException::mandatoryToField(static::class);
         }
     }

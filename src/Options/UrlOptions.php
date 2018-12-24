@@ -9,7 +9,7 @@ class UrlOptions
     /**
      * The controller where the laravel router should dispatch the request.
      * This is used when a URI is accessed by a user.
-     * The format of this property should be Full\Namespace\Of\Controller
+     * The format of this property should be Full\Namespace\Of\Controller.
      *
      * @var string
      */
@@ -18,7 +18,7 @@ class UrlOptions
     /**
      * The controller where the laravel router should dispatch the request.
      * This is used when a URI is accessed by a user.
-     * The format of this property should be simply the name of the method residing inside the $routeController
+     * The format of this property should be simply the name of the method residing inside the $routeController.
      *
      * @var string
      */
@@ -80,7 +80,7 @@ class UrlOptions
         }
 
         throw new Exception(
-            'The property "' . $name . '" does not exist in class "' . static::class . '"'
+            'The property "'.$name.'" does not exist in class "'.static::class.'"'
         );
     }
 
@@ -89,7 +89,7 @@ class UrlOptions
      *
      * @return UrlOptions
      */
-    public static function instance(): UrlOptions
+    public static function instance(): self
     {
         return new static();
     }
@@ -101,7 +101,7 @@ class UrlOptions
      * @param string $action
      * @return UrlOptions
      */
-    public function routeUrlTo($controller, $action): UrlOptions
+    public function routeUrlTo($controller, $action): self
     {
         $this->routeController = $controller;
         $this->routeAction = $action;
@@ -115,7 +115,7 @@ class UrlOptions
      * @param string|array|callable $field
      * @return UrlOptions
      */
-    public function generateUrlSlugFrom($field): UrlOptions
+    public function generateUrlSlugFrom($field): self
     {
         $this->fromField = $field;
 
@@ -128,7 +128,7 @@ class UrlOptions
      * @param string $field
      * @return UrlOptions
      */
-    public function saveUrlSlugTo($field): UrlOptions
+    public function saveUrlSlugTo($field): self
     {
         $this->toField = $field;
 
@@ -141,7 +141,7 @@ class UrlOptions
      * @param string|array|callable $prefix
      * @return UrlOptions
      */
-    public function prefixUrlWith($prefix): UrlOptions
+    public function prefixUrlWith($prefix): self
     {
         $this->urlPrefix = $prefix;
 
@@ -154,7 +154,7 @@ class UrlOptions
      * @param string|array|callable $suffix
      * @return UrlOptions
      */
-    public function suffixUrlWith($suffix): UrlOptions
+    public function suffixUrlWith($suffix): self
     {
         $this->urlSuffix = $suffix;
 
@@ -167,7 +167,7 @@ class UrlOptions
      * @param string $glue
      * @return UrlOptions
      */
-    public function glueUrlWith($glue): UrlOptions
+    public function glueUrlWith($glue): self
     {
         $this->urlGlue = $glue;
 
@@ -179,7 +179,7 @@ class UrlOptions
      *
      * @return UrlOptions
      */
-    public function doNotUpdateCascading(): UrlOptions
+    public function doNotUpdateCascading(): self
     {
         $this->cascadeUpdate = false;
 

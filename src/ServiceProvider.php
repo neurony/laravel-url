@@ -2,14 +2,14 @@
 
 namespace Zbiller\Url;
 
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Routing\ControllerDispatcher;
+use Zbiller\Url\Models\Url;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Routing\Route as Router;
-use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Zbiller\Url\Contracts\UrlModelContract;
-use Zbiller\Url\Models\Url;
+use Illuminate\Routing\ControllerDispatcher;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 class ServiceProvider extends BaseServiceProvider
 {
@@ -42,7 +42,6 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-
     }
 
     /**
@@ -55,7 +54,7 @@ class ServiceProvider extends BaseServiceProvider
             $migration = database_path("migrations/{$timestamp}_create_urls_table.php");
 
             $this->publishes([
-                __DIR__ . '/../database/migrations/create_urls_table.php.stub' => $migration,
+                __DIR__.'/../database/migrations/create_urls_table.php.stub' => $migration,
             ], 'migrations');
         }
     }
@@ -67,7 +66,7 @@ class ServiceProvider extends BaseServiceProvider
     {
         Route::macro('customUrl', function () {
             Route::get('{all}', function ($url = '/') {
-                if (!($url = Url::whereUrl($url)->first()) || !($model = $url->urlable)) {
+                if (! ($url = Url::whereUrl($url)->first()) || ! ($model = $url->urlable)) {
                     abort(404);
                 }
 
@@ -76,7 +75,7 @@ class ServiceProvider extends BaseServiceProvider
 
                 return (new ControllerDispatcher(app()))->dispatch(
                     app(Router::class)->setAction([
-                        'uses' => $controller . '@' . $action,
+                        'uses' => $controller.'@'.$action,
                         'model' => $model,
                     ]), app($controller), $action
                 );

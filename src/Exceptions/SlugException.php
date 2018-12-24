@@ -15,8 +15,8 @@ class SlugException extends Exception
     public static function mandatoryFromField($class)
     {
         return new static(
-            'The model ' . $class . ' uses the HasSlug trait' . PHP_EOL .
-            'You are required to set the field from where to generate the slug ($fromField)' . PHP_EOL .
+            'The model '.$class.' uses the HasSlug trait'.PHP_EOL.
+            'You are required to set the field from where to generate the slug ($fromField)'.PHP_EOL.
             'You can do this from inside the getSlugOptions() method defined on the model.'
         );
     }
@@ -30,8 +30,8 @@ class SlugException extends Exception
     public static function mandatoryToField($class)
     {
         return new static(
-            'The model ' . $class . ' uses the HasSlug trait' . PHP_EOL .
-            'You are required to set the field where to store the generated slug ($toField)' . PHP_EOL .
+            'The model '.$class.' uses the HasSlug trait'.PHP_EOL.
+            'You are required to set the field where to store the generated slug ($toField)'.PHP_EOL.
             'You can do this from inside the getSlugOptions() method defined on the model.'
         );
     }
