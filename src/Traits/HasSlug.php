@@ -181,10 +181,8 @@ trait HasSlug
      */
     protected function getSlugSource()
     {
-        if ($this->slugOptions->fromField instanceof Closure) {
-            $source = call_user_func($this->slugOptions->fromField, $this);
-
-            return substr($source, 0, $this->slugOptions->fromField);
+        if (is_callable($this->slugOptions->fromField)) {
+            return call_user_func($this->slugOptions->fromField, $this);
         }
 
         return collect($this->slugOptions->fromField)->map(function ($field) {
