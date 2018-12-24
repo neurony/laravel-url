@@ -68,13 +68,13 @@ class ServiceProvider extends BaseServiceProvider
             Route::get('{all}', function ($url = '/') {
                 $url = Url::whereUrl($url)->first();
 
-                if (!$url) {
+                if (! $url) {
                     abort(404);
                 }
 
                 $model = $url->urlable;
 
-                if (!$model) {
+                if (! $model) {
                     abort(404);
                 }
 

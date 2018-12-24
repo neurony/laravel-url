@@ -12,7 +12,7 @@ use Zbiller\Url\Exceptions\UrlException;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- * Trait HasUrl
+ * Trait HasUrl.
  *
  * @property $routeController
  * @property $routeAction
