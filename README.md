@@ -1,7 +1,8 @@
 # Generate custom URLs for any Eloquent model
 
 [![Build Status](https://travis-ci.org/zbiller/laravel-url.svg?branch=master)](https://travis-ci.org/zbiller/laravel-url)
-[![StyleCI](https://github.styleci.io/repos/162329525/shield?branch=master)](https://github.styleci.io/repos/162329525)   
+[![StyleCI](https://github.styleci.io/repos/162329525/shield?branch=master)](https://github.styleci.io/repos/162329525)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/zbiller/laravel-url/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/zbiller/laravel-url/?branch=master)   
 
 - [Overview](#overview)   
 - [Installation](#installation)   
