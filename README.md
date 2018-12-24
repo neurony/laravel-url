@@ -1,6 +1,14 @@
-# Overview 
+# Generate custom URLs for any Eloquent model
 
-**Generate custom URLs for any Eloquent model**.   
+[![Build Status](https://travis-ci.org/zbiller/laravel-url.svg?branch=master)](https://travis-ci.org/zbiller/laravel-url)   
+
+- [Overview](#overview)   
+- [Installation](#installation)   
+- [Usage](#usage)   
+- [Customisations](#customisations)   
+- [Extra](#extra)   
+
+# Overview
 
 This package allows any Eloquent model record to have a custom URL associated to it through a polymorphic one-to-one relationship.   
    
