@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Zbiller\Url\Exceptions\SlugException;
 
 /**
- * Trait HasSlug
+ * Trait HasSlug.
  *
  * @property $fromField
  * @property $toField
