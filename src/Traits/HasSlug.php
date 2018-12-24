@@ -2,7 +2,6 @@
 
 namespace Zbiller\Url\Traits;
 
-use Closure;
 use Zbiller\Url\Options\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
 use Zbiller\Url\Exceptions\SlugException;
