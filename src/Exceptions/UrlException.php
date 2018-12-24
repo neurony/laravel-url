@@ -45,8 +45,8 @@ class UrlException extends Exception
     public static function mandatoryRouting($class)
     {
         return new static(
-            'The model ' . $class . ' uses the HasUrl trait' . PHP_EOL .
-            'You are required to set the routing from where Laravel will dispatch it\'s route requests.' . PHP_EOL .
+            'The model '.$class.' uses the HasUrl trait'.PHP_EOL.
+            'You are required to set the routing from where Laravel will dispatch it\'s route requests.'.PHP_EOL.
             'You can do this from inside the getUrlOptions() method defined on the model.'
         );
     }
@@ -60,8 +60,8 @@ class UrlException extends Exception
     public static function mandatoryFromField($class)
     {
         return new static(
-            'The model ' . $class . ' uses the HasUrl trait' . PHP_EOL .
-            'You are required to set the field from where to generate the url slug ($fromField)' . PHP_EOL .
+            'The model '.$class.' uses the HasUrl trait'.PHP_EOL.
+            'You are required to set the field from where to generate the url slug ($fromField)'.PHP_EOL.
             'You can do this from inside the getUrlOptions() method defined on the model.'
         );
     }
@@ -75,8 +75,8 @@ class UrlException extends Exception
     public static function mandatoryToField($class)
     {
         return new static(
-            'The model ' . $class . ' uses the HasUrl trait' . PHP_EOL .
-            'You are required to set the field where to store the generated url slug ($toField)' . PHP_EOL .
+            'The model '.$class.' uses the HasUrl trait'.PHP_EOL.
+            'You are required to set the field where to store the generated url slug ($toField)'.PHP_EOL.
             'You can do this from inside the getUrlOptions() method defined on the model.'
         );
     }

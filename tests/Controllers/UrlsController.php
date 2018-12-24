@@ -2,8 +2,8 @@
 
 namespace Zbiller\Url\Tests\Controllers;
 
-use Illuminate\Routing\Controller;
 use Zbiller\Url\Models\Url;
+use Illuminate\Routing\Controller;
 
 class UrlsController extends Controller
 {

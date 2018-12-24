@@ -24,7 +24,7 @@ class RouteUrlTest extends TestCase
         Route::customUrl();
 
         $this->urlModel = UrlModel::create([
-            'name' => 'Test name'
+            'name' => 'Test name',
         ]);
     }
 

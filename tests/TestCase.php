@@ -1,11 +1,12 @@
 <?php
+
 namespace Zbiller\Url\Tests;
 
-use Illuminate\Contracts\Foundation\Application;
+use Zbiller\Url\Tests\Models\UrlModel;
+use Zbiller\Url\Tests\Models\SlugModel;
 use Illuminate\Database\Schema\Blueprint;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Zbiller\Url\Tests\Models\SlugModel;
-use Zbiller\Url\Tests\Models\UrlModel;
+use Illuminate\Contracts\Foundation\Application;
 
 abstract class TestCase extends Orchestra
 {
@@ -64,7 +65,7 @@ abstract class TestCase extends Orchestra
      */
     protected function setUpDatabase(Application $app)
     {
-        $this->loadMigrationsFrom(__DIR__ . '/Database/Migrations');
+        $this->loadMigrationsFrom(__DIR__.'/Database/Migrations');
 
         $schema = $app['db']->connection()->getSchemaBuilder();
 
@@ -83,7 +84,7 @@ abstract class TestCase extends Orchestra
     protected function createSlugModel(SlugModel $model = null, $attributes = [])
     {
         $model = $model && $model instanceof SlugModel ? $model : new SlugModel;
-        $attributes = $attributes && !empty($attributes) ? $attributes : [
+        $attributes = $attributes && ! empty($attributes) ? $attributes : [
             'name' => 'Test name',
             'other_field' => 'Other field',
         ];
@@ -98,7 +99,7 @@ abstract class TestCase extends Orchestra
     protected function createUrlModel(UrlModel $model = null, $attributes = [])
     {
         $model = $model && $model instanceof UrlModel ? $model : new UrlModel;
-        $attributes = $attributes && !empty($attributes) ? $attributes : [
+        $attributes = $attributes && ! empty($attributes) ? $attributes : [
             'name' => 'Test name',
         ];
 

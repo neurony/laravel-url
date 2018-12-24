@@ -2,9 +2,9 @@
 
 namespace Zbiller\Url\Tests;
 
-use Zbiller\Url\Exceptions\SlugException;
 use Zbiller\Url\Options\SlugOptions;
 use Zbiller\Url\Tests\Models\SlugModel;
+use Zbiller\Url\Exceptions\SlugException;
 
 class HasSlugTest extends TestCase
 {
@@ -42,7 +42,8 @@ class HasSlugTest extends TestCase
     public function it_has_a_method_preventing_a_slug_from_being_generated_on_create()
     {
         $model = new class extends SlugModel {
-            public function getSlugOptions() : SlugOptions {
+            public function getSlugOptions() : SlugOptions
+            {
                 return parent::getSlugOptions()->doNotGenerateSlugOnCreate();
             }
         };
@@ -56,7 +57,8 @@ class HasSlugTest extends TestCase
     public function it_has_a_method_preventing_a_slug_from_being_generated_on_update()
     {
         $model = new class extends SlugModel {
-            public function getSlugOptions() : SlugOptions {
+            public function getSlugOptions() : SlugOptions
+            {
                 return parent::getSlugOptions()->doNotGenerateSlugOnUpdate();
             }
         };
@@ -70,14 +72,15 @@ class HasSlugTest extends TestCase
 
     /**
      * Not generating unique slugs and allowing duplicates is possible by customizing the HasSlug behavior, via SlugOptions.
-     * SlugOptions::instance()->allowDuplicateSlugs()
+     * SlugOptions::instance()->allowDuplicateSlugs().
      *
      * @test
      */
     public function it_has_a_method_that_allows_saving_duplicate_slugs()
     {
         $model = new class extends SlugModel {
-            public function getSlugOptions() : SlugOptions {
+            public function getSlugOptions() : SlugOptions
+            {
                 return parent::getSlugOptions()->allowDuplicateSlugs();
             }
         };
@@ -93,7 +96,8 @@ class HasSlugTest extends TestCase
     public function it_has_a_method_for_manually_defining_the_word_separator()
     {
         $model = new class extends SlugModel {
-            public function getSlugOptions() : SlugOptions {
+            public function getSlugOptions() : SlugOptions
+            {
                 return parent::getSlugOptions()->usingSeparator('_');
             }
         };
@@ -110,7 +114,7 @@ class HasSlugTest extends TestCase
             public function getSlugOptions(): SlugOptions
             {
                 return parent::getSlugOptions()->generateSlugFrom([
-                    'name', 'other_field'
+                    'name', 'other_field',
                 ]);
             }
         };
@@ -124,7 +128,8 @@ class HasSlugTest extends TestCase
     public function it_can_generate_language_specific_slugs()
     {
         $model = new class extends SlugModel {
-            public function getSlugOptions() : SlugOptions {
+            public function getSlugOptions() : SlugOptions
+            {
                 return parent::getSlugOptions();
             }
         };
@@ -134,7 +139,8 @@ class HasSlugTest extends TestCase
         $this->assertEquals('gute-nacht', $this->slugModel->slug);
 
         $model = new class extends SlugModel {
-            public function getSlugOptions() : SlugOptions {
+            public function getSlugOptions() : SlugOptions
+            {
                 return parent::getSlugOptions()->usingLanguage('de');
             }
         };
@@ -148,7 +154,8 @@ class HasSlugTest extends TestCase
     public function it_expects_a_from_field_to_be_specified_in_the_options()
     {
         $model = new class extends SlugModel {
-            public function getSlugOptions() : SlugOptions {
+            public function getSlugOptions() : SlugOptions
+            {
                 return SlugOptions::instance()->saveSlugTo('slug');
             }
         };
@@ -160,7 +167,8 @@ class HasSlugTest extends TestCase
     public function it_expects_a_to_field_to_be_specified_in_the_options()
     {
         $model = new class extends SlugModel {
-            public function getSlugOptions() : SlugOptions {
+            public function getSlugOptions() : SlugOptions
+            {
                 return SlugOptions::instance()->generateSlugFrom('slug');
             }
         };
