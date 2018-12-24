@@ -7,6 +7,17 @@ use Zbiller\Url\Options\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
 use Zbiller\Url\Exceptions\SlugException;
 
+/**
+ * Trait HasSlug
+ *
+ * @property $fromField
+ * @property $toField
+ * @property $uniqueSlugs
+ * @property $slugSeparator
+ * @property $slugLanguage
+ * @property $generateSlugOnCreate
+ * @property $generateSlugOnUpdate
+ */
 trait HasSlug
 {
     /**

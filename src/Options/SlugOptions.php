@@ -9,7 +9,7 @@ class SlugOptions
     /**
      * The field used to generate the slug from.
      *
-     * @var string
+     * @var string|array|callable
      */
     private $fromField;
 

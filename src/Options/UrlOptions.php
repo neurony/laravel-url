@@ -27,7 +27,7 @@ class UrlOptions
     /**
      * The field used to generate the url slug from.
      *
-     * @var string
+     * @var string|array|callable
      */
     private $fromField;
 
@@ -41,14 +41,14 @@ class UrlOptions
     /**
      * The prefix that should be prepended to the generated url slug.
      *
-     * @var string
+     * @var string|array|callable
      */
     private $urlPrefix;
 
     /**
      * The suffix that should be appended to the generated url slug.
      *
-     * @var string
+     * @var string|array|callable
      */
     private $urlSuffix;
 

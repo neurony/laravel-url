@@ -11,6 +11,18 @@ use Illuminate\Database\Eloquent\Model;
 use Zbiller\Url\Exceptions\UrlException;
 use Illuminate\Database\Eloquent\Builder;
 
+/**
+ * Trait HasUrl
+ *
+ * @property $routeController
+ * @property $routeAction
+ * @property $fromField
+ * @property $toField
+ * @property $urlPrefix
+ * @property $urlSuffix
+ * @property $urlGlue
+ * @property $cascadeUpdate
+ */
 trait HasUrl
 {
     use HasSlug;
@@ -91,7 +103,7 @@ trait HasUrl
      * Get the model's direct url string.
      *
      * @param bool|null $secure
-     * @return string|null
+     * @return \Illuminate\Contracts\Routing\UrlGenerator|string|null
      */
     public function getUrl($secure = null)
     {

@@ -66,7 +66,15 @@ class ServiceProvider extends BaseServiceProvider
     {
         Route::macro('customUrl', function () {
             Route::get('{all}', function ($url = '/') {
-                if (! ($url = Url::whereUrl($url)->first()) || ! ($model = $url->urlable)) {
+                $url = Url::whereUrl($url)->first();
+
+                if (!$url) {
+                    abort(404);
+                }
+
+                $model = $url->urlable;
+
+                if (!$model) {
                     abort(404);
                 }
 
