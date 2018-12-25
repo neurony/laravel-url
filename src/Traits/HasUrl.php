@@ -3,6 +3,7 @@
 namespace Zbiller\Url\Traits;
 
 use Exception;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Zbiller\Url\Models\Url;
 use Illuminate\Support\Facades\DB;
 use Zbiller\Url\Options\UrlOptions;
@@ -11,18 +12,6 @@ use Illuminate\Database\Eloquent\Model;
 use Zbiller\Url\Exceptions\UrlException;
 use Illuminate\Database\Eloquent\Builder;
 
-/**
- * Trait HasUrl.
- *
- * @property $routeController
- * @property $routeAction
- * @property $fromField
- * @property $toField
- * @property $urlPrefix
- * @property $urlSuffix
- * @property $urlGlue
- * @property $cascadeUpdate
- */
 trait HasUrl
 {
     use HasSlug;
@@ -58,7 +47,7 @@ trait HasUrl
      *
      * @return void
      */
-    public static function bootHasUrl()
+    public static function bootHasUrl(): void
     {
         static::addGlobalScope('url', function (Builder $builder) {
             $builder->with('url');
@@ -92,9 +81,9 @@ trait HasUrl
     /**
      * Get the model's url.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     * @return MorphOne
      */
-    public function url()
+    public function url(): MorphOne
     {
         return $this->morphOne(Url::class, 'urlable');
     }
@@ -105,7 +94,7 @@ trait HasUrl
      * @param bool|null $secure
      * @return \Illuminate\Contracts\Routing\UrlGenerator|string|null
      */
-    public function getUrl($secure = null)
+    public function getUrl(?bool $secure = null): ?string
     {
         if ($this->url && $this->url->exists) {
             return url($this->url->url, [], $secure);
@@ -117,7 +106,7 @@ trait HasUrl
      *
      * @return string|null
      */
-    public function getUri()
+    public function getUri(): ?string
     {
         return optional($this->url)->url ?: null;
     }
@@ -127,7 +116,7 @@ trait HasUrl
      *
      * @return static
      */
-    public function doNotGenerateUrl()
+    public function doNotGenerateUrl(): self
     {
         self::$generateUrl = false;
 
@@ -140,7 +129,7 @@ trait HasUrl
      * @return SlugOptions
      * @throws Exception
      */
-    public function getSlugOptions()
+    public function getSlugOptions(): SlugOptions
     {
         $this->initUrlOptions();
 
@@ -151,10 +140,9 @@ trait HasUrl
 
     /**
      * @return void
-     * @throws UrlException
      * @throws Exception
      */
-    public function saveUrl()
+    public function saveUrl(): void
     {
         $this->initUrlOptions();
 
@@ -171,7 +159,7 @@ trait HasUrl
      * @return void
      * @throws Exception
      */
-    public function createUrl()
+    public function createUrl(): void
     {
         $this->initUrlOptions();
 
@@ -194,7 +182,7 @@ trait HasUrl
      * @return void
      * @throws Exception
      */
-    public function updateUrl()
+    public function updateUrl(): void
     {
         $this->initUrlOptions();
 
@@ -225,8 +213,9 @@ trait HasUrl
      * Delete the url for the just deleted model.
      *
      * @return void
+     * @throws UrlException
      */
-    public function deleteUrl()
+    public function deleteUrl(): void
     {
         try {
             $this->url()->delete();
@@ -241,7 +230,7 @@ trait HasUrl
      *
      * @return void
      */
-    protected function updateUrlsInCascade()
+    protected function updateUrlsInCascade(): void
     {
         $old = trim($this->getOriginal($this->urlOptions->toField), '/');
         $new = trim($this->getAttribute($this->urlOptions->toField), '/');
@@ -263,7 +252,7 @@ trait HasUrl
      *
      * @return string
      */
-    protected function buildFullUrl()
+    protected function buildFullUrl(): string
     {
         $prefix = $this->buildUrlSegment('prefix');
         $suffix = $this->buildUrlSegment('suffix');
@@ -281,9 +270,9 @@ trait HasUrl
      * Otherwise, the method will return an empty string.
      *
      * @param string $type
-     * @return mixed|string
+     * @return string
      */
-    protected function buildUrlSegment($type)
+    protected function buildUrlSegment(string $type): string
     {
         if ($type != 'prefix' && $type != 'suffix') {
             return '';
@@ -308,7 +297,7 @@ trait HasUrl
      * @return void
      * @throws Exception
      */
-    protected function initUrlOptions()
+    protected function initUrlOptions(): void
     {
         if ($this->urlOptions === null) {
             $this->urlOptions = $this->getUrlOptions();
@@ -322,8 +311,9 @@ trait HasUrl
      * Check if $fromField and $toField have been set.
      *
      * @return void
+     * @throws UrlException
      */
-    protected function validateUrlOptions()
+    protected function validateUrlOptions(): void
     {
         if (! $this->urlOptions->routeController || ! $this->urlOptions->routeAction) {
             throw UrlException::mandatoryRouting(static::class);

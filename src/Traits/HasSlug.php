@@ -6,17 +6,6 @@ use Zbiller\Url\Options\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
 use Zbiller\Url\Exceptions\SlugException;
 
-/**
- * Trait HasSlug.
- *
- * @property $fromField
- * @property $toField
- * @property $uniqueSlugs
- * @property $slugSeparator
- * @property $slugLanguage
- * @property $generateSlugOnCreate
- * @property $generateSlugOnUpdate
- */
 trait HasSlug
 {
     /**
@@ -39,7 +28,7 @@ trait HasSlug
      *
      * @return void
      */
-    public static function bootHasSlug()
+    public static function bootHasSlug(): void
     {
         static::creating(function (Model $model) {
             $model->generateSlugOnCreate();
@@ -54,8 +43,9 @@ trait HasSlug
      * Handle setting the slug on model creation.
      *
      * @return void
+     * @throws SlugException
      */
-    protected function generateSlugOnCreate()
+    protected function generateSlugOnCreate(): void
     {
         $this->initSlugOptions();
 
@@ -70,8 +60,9 @@ trait HasSlug
      * Handle setting the slug on model update.
      *
      * @return void
+     * @throws SlugException
      */
-    protected function generateSlugOnUpdate()
+    protected function generateSlugOnUpdate(): void
     {
         $this->initSlugOptions();
 
@@ -86,8 +77,9 @@ trait HasSlug
      * The logic for actually setting the slug.
      *
      * @return void
+     * @throws SlugException
      */
-    public function generateSlug()
+    public function generateSlug(): void
     {
         $this->initSlugOptions();
 
@@ -107,7 +99,7 @@ trait HasSlug
      *
      * @return string
      */
-    protected function generateNonUniqueSlug()
+    protected function generateNonUniqueSlug(): string
     {
         if ($this->slugHasChanged()) {
             $source = $this->getAttribute($this->slugOptions->toField);
@@ -128,7 +120,7 @@ trait HasSlug
      * @param string $slug
      * @return string
      */
-    protected function makeSlugUnique($slug)
+    protected function makeSlugUnique(string $slug): string
     {
         $original = $slug;
         $i = 1;
@@ -146,7 +138,7 @@ trait HasSlug
      *
      * @return bool
      */
-    protected function slugHasBeenSupplied()
+    protected function slugHasBeenSupplied(): bool
     {
         if (is_array($this->slugOptions->fromField)) {
             foreach ($this->slugOptions->fromField as $field) {
@@ -166,7 +158,7 @@ trait HasSlug
      *
      * @return bool
      */
-    protected function slugHasChanged()
+    protected function slugHasChanged(): bool
     {
         return
             $this->getOriginal($this->slugOptions->toField) &&
@@ -178,7 +170,7 @@ trait HasSlug
      *
      * @return string
      */
-    protected function getSlugSource()
+    protected function getSlugSource(): string
     {
         if (is_callable($this->slugOptions->fromField)) {
             return call_user_func($this->slugOptions->fromField, $this);
@@ -195,7 +187,7 @@ trait HasSlug
      * @param string $slug
      * @return bool
      */
-    protected function slugAlreadyExists($slug)
+    protected function slugAlreadyExists(string $slug): bool
     {
         return (bool) static::withoutGlobalScopes()->where($this->slugOptions->toField, $slug)
             ->where($this->getKeyName(), '!=', $this->getKey() ?: '0')
@@ -206,8 +198,9 @@ trait HasSlug
      * Both instantiate the slug options as well as validate their contents.
      *
      * @return void
+     * @throws SlugException
      */
-    protected function initSlugOptions()
+    protected function initSlugOptions(): void
     {
         if ($this->slugOptions === null) {
             $this->slugOptions = $this->getSlugOptions();
@@ -221,8 +214,9 @@ trait HasSlug
      * Check if $fromField and $toField have been set.
      *
      * @return void
+     * @throws SlugException
      */
-    protected function validateSlugOptions()
+    protected function validateSlugOptions(): void
     {
         if (! $this->slugOptions->fromField) {
             throw SlugException::mandatoryFromField(static::class);

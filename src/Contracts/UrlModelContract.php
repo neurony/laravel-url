@@ -2,6 +2,9 @@
 
 namespace Zbiller\Url\Contracts;
 
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 interface UrlModelContract
 {
     /**
@@ -11,17 +14,17 @@ interface UrlModelContract
 
     /**
      * @param bool $silent
-     * @return \Illuminate\Database\Eloquent\Model|null
-     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     * @return Model|null
+     * @throws ModelNotFoundException
      */
-    public static function getUrlable($silent = true);
+    public static function getUrlable(bool $silent = true): ?Model;
 
     /**
      * Get the model instance correlated with the accessed url.
      * Throw a ModelNotFoundException if the model doesn't exist.
      *
-     * @return \Illuminate\Database\Eloquent\Model|null
-     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     * @return Model|null
+     * @throws ModelNotFoundException
      */
-    public static function getUrlableOrFail();
+    public static function getUrlableOrFail(): ?Model;
 }

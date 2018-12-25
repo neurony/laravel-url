@@ -101,7 +101,7 @@ class UrlOptions
      * @param string $action
      * @return UrlOptions
      */
-    public function routeUrlTo($controller, $action): self
+    public function routeUrlTo(string $controller, string $action): self
     {
         $this->routeController = $controller;
         $this->routeAction = $action;
@@ -128,7 +128,7 @@ class UrlOptions
      * @param string $field
      * @return UrlOptions
      */
-    public function saveUrlSlugTo($field): self
+    public function saveUrlSlugTo(string $field): self
     {
         $this->toField = $field;
 
@@ -167,7 +167,7 @@ class UrlOptions
      * @param string $glue
      * @return UrlOptions
      */
-    public function glueUrlWith($glue): self
+    public function glueUrlWith(string $glue): self
     {
         $this->urlGlue = $glue;
 

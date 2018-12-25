@@ -106,7 +106,7 @@ class SlugOptions
      * @param string $field
      * @return SlugOptions
      */
-    public function saveSlugTo($field): self
+    public function saveSlugTo(string $field): self
     {
         $this->toField = $field;
 
@@ -131,7 +131,7 @@ class SlugOptions
      * @param string $separator
      * @return SlugOptions
      */
-    public function usingSeparator($separator): self
+    public function usingSeparator(string $separator): self
     {
         $this->slugSeparator = $separator;
 
@@ -144,7 +144,7 @@ class SlugOptions
      * @param string $separator
      * @return SlugOptions
      */
-    public function usingLanguage($separator): self
+    public function usingLanguage(string $separator): self
     {
         $this->slugLanguage = $separator;
 

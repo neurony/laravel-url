@@ -12,7 +12,7 @@ class SlugException extends Exception
      * @param string $class
      * @return static
      */
-    public static function mandatoryFromField($class)
+    public static function mandatoryFromField(string $class): self
     {
         return new static(
             'The model '.$class.' uses the HasSlug trait'.PHP_EOL.
@@ -27,7 +27,7 @@ class SlugException extends Exception
      * @param string $class
      * @return static
      */
-    public static function mandatoryToField($class)
+    public static function mandatoryToField(string $class): self
     {
         return new static(
             'The model '.$class.' uses the HasSlug trait'.PHP_EOL.

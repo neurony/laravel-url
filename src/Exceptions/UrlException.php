@@ -11,7 +11,7 @@ class UrlException extends Exception
      *
      * @return static
      */
-    public static function createFailed()
+    public static function createFailed(): self
     {
         return new static('Failed creating the url!');
     }
@@ -21,7 +21,7 @@ class UrlException extends Exception
      *
      * @return static
      */
-    public static function updateFailed()
+    public static function updateFailed(): self
     {
         return new static('Failed updating the url!');
     }
@@ -31,7 +31,7 @@ class UrlException extends Exception
      *
      * @return static
      */
-    public static function deleteFailed()
+    public static function deleteFailed(): self
     {
         return new static('Failed deleting the url!');
     }
@@ -42,7 +42,7 @@ class UrlException extends Exception
      * @param string $class
      * @return static
      */
-    public static function mandatoryRouting($class)
+    public static function mandatoryRouting(string $class): self
     {
         return new static(
             'The model '.$class.' uses the HasUrl trait'.PHP_EOL.
@@ -57,7 +57,7 @@ class UrlException extends Exception
      * @param string $class
      * @return static
      */
-    public static function mandatoryFromField($class)
+    public static function mandatoryFromField(string $class): self
     {
         return new static(
             'The model '.$class.' uses the HasUrl trait'.PHP_EOL.
@@ -72,7 +72,7 @@ class UrlException extends Exception
      * @param string $class
      * @return static
      */
-    public static function mandatoryToField($class)
+    public static function mandatoryToField(string $class): self
     {
         return new static(
             'The model '.$class.' uses the HasUrl trait'.PHP_EOL.

@@ -3,6 +3,7 @@
 namespace Zbiller\Url\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Database\Eloquent\Builder;
 use Zbiller\Url\Contracts\UrlModelContract;
@@ -31,9 +32,9 @@ class Url extends Model implements UrlModelContract
     /**
      * Get all of the owning urlable models.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     * @return MorphTo
      */
-    public function urlable()
+    public function urlable() : MorphTo
     {
         return $this->morphTo();
     }
@@ -44,7 +45,7 @@ class Url extends Model implements UrlModelContract
      * @param Builder $query
      * @param string $url
      */
-    public function scopeWhereUrl($query, $url)
+    public function scopeWhereUrl(Builder $query, string $url)
     {
         $query->where('url', $url);
     }
@@ -56,7 +57,7 @@ class Url extends Model implements UrlModelContract
      * @param int $id
      * @param string $type
      */
-    public function scopeWhereUrlable($query, $id, $type)
+    public function scopeWhereUrlable(Builder $query, int $id, string $type)
     {
         $query->where([
             'urlable_id' => $id,
@@ -69,7 +70,7 @@ class Url extends Model implements UrlModelContract
      *
      * @param Builder $query
      */
-    public function scopeInAlphabeticalOrder($query)
+    public function scopeInAlphabeticalOrder(Builder $query)
     {
         $query->orderBy('url', 'asc');
     }
@@ -81,7 +82,7 @@ class Url extends Model implements UrlModelContract
      * @return Model|null
      * @throws ModelNotFoundException
      */
-    public static function getUrlable($silent = true)
+    public static function getUrlable(bool $silent = true): ?Model
     {
         $model = Request::route()->action['model'] ?? null;
 
@@ -101,7 +102,7 @@ class Url extends Model implements UrlModelContract
      * @return Model|null
      * @throws ModelNotFoundException
      */
-    public static function getUrlableOrFail()
+    public static function getUrlableOrFail(): ?Model
     {
         return static::getUrlable(false);
     }
