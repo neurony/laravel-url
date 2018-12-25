@@ -3,7 +3,6 @@
 namespace Zbiller\Url\Traits;
 
 use Exception;
-use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Zbiller\Url\Models\Url;
 use Illuminate\Support\Facades\DB;
 use Zbiller\Url\Options\UrlOptions;
@@ -11,6 +10,7 @@ use Zbiller\Url\Options\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
 use Zbiller\Url\Exceptions\UrlException;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 trait HasUrl
 {
