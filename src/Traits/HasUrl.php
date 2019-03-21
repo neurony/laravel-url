@@ -1,14 +1,14 @@
 <?php
 
-namespace Zbiller\Url\Traits;
+namespace Neurony\Url\Traits;
 
 use Exception;
-use Zbiller\Url\Models\Url;
+use Neurony\Url\Models\Url;
 use Illuminate\Support\Facades\DB;
-use Zbiller\Url\Options\UrlOptions;
-use Zbiller\Url\Options\SlugOptions;
+use Neurony\Url\Options\UrlOptions;
+use Neurony\Url\Options\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
-use Zbiller\Url\Exceptions\UrlException;
+use Neurony\Url\Exceptions\UrlException;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
@@ -18,7 +18,7 @@ trait HasUrl
 
     /**
      * The container for all the options necessary for this trait.
-     * Options can be viewed in the Zbiller\Url\Options\UrlOptions file.
+     * Options can be viewed in the Neurony\Url\Options\UrlOptions file.
      *
      * @var UrlOptions
      */

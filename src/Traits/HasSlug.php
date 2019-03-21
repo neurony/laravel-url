@@ -1,16 +1,16 @@
 <?php
 
-namespace Zbiller\Url\Traits;
+namespace Neurony\Url\Traits;
 
-use Zbiller\Url\Options\SlugOptions;
+use Neurony\Url\Options\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
-use Zbiller\Url\Exceptions\SlugException;
+use Neurony\Url\Exceptions\SlugException;
 
 trait HasSlug
 {
     /**
      * The container for all the options necessary for this trait.
-     * Options can be viewed in the Zbiller\Url\Options\SlugOptions file.
+     * Options can be viewed in the Neurony\Url\Options\SlugOptions file.
      *
      * @var SlugOptions
      */

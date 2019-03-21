@@ -1,11 +1,11 @@
 <?php
 
-namespace Zbiller\Url\Tests\Models;
+namespace Neurony\Url\Tests\Models;
 
-use Zbiller\Url\Traits\HasUrl;
-use Zbiller\Url\Options\UrlOptions;
+use Neurony\Url\Traits\HasUrl;
+use Neurony\Url\Options\UrlOptions;
 use Illuminate\Database\Eloquent\Model;
-use Zbiller\Url\Tests\Controllers\UrlsController;
+use Neurony\Url\Tests\Controllers\UrlsController;
 
 class UrlModel extends Model
 {

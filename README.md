@@ -1,9 +1,5 @@
 # Generate custom URLs for any Eloquent model
 
-[![Build Status](https://travis-ci.org/zbiller/laravel-url.svg?branch=master)](https://travis-ci.org/zbiller/laravel-url)
-[![StyleCI](https://github.styleci.io/repos/162329525/shield?branch=master)](https://github.styleci.io/repos/162329525)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/zbiller/laravel-url/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/zbiller/laravel-url/?branch=master)   
-
 - [Overview](#overview)   
 - [Installation](#installation)   
 - [Usage](#usage)   
@@ -22,13 +18,13 @@ When the model is force deleted, the corresponding URL will also be deleted by l
 Install the package via Composer:
 
 ```
-composer require zbiller/laravel-url
+composer require neurony/laravel-url
 ```
 
 Publish the migration file with:
 
 ```
-php artisan vendor:publish --provider="Zbiller\Url\ServiceProvider" --tag="migrations"
+php artisan vendor:publish --provider="Neurony\Url\ServiceProvider" --tag="migrations"
 ```
 
 After the migration has been published you can create the `urls` table by running:
@@ -52,7 +48,7 @@ If the URL matches a record in that table, it will dispatch the request to the d
 
 ### Step 2
 
-Your Eloquent models should use the `Zbiller\Url\Traits\HasUrl` trait and the `Zbiller\Url\Options\UrlOptions` class.
+Your Eloquent models should use the `Neurony\Url\Traits\HasUrl` trait and the `Neurony\Url\Options\UrlOptions` class.
 
 The trait contains an abstract method `getUrlOptions()` that you must implement yourself.
 
@@ -64,8 +60,8 @@ Here's an example of how to implement the trait:
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Zbiller\Url\Options\UrlOptions;
-use Zbiller\Url\Traits\HasUrl;
+use Neurony\Url\Options\UrlOptions;
+use Neurony\Url\Traits\HasUrl;
 
 class YourModel extends Model
 {
@@ -86,14 +82,14 @@ class YourModel extends Model
 }
 ```
 
-The `getUrlOptions()` should always return a `Zbiller\Url\Options\UrlOptions` instance.   
-You can view all options and their methods of implementation inside the `Zbiller\Url\Options\UrlOptions` class.
+The `getUrlOptions()` should always return a `Neurony\Url\Options\UrlOptions` instance.   
+You can view all options and their methods of implementation inside the `Neurony\Url\Options\UrlOptions` class.
 
 ### Step 3
 
 Create the controller and action specified in the `getUrlOptions()` method.    
    
-Once created, you can fetch your Eloquent model instance corresponding to the URL visited by using the `getUrlable()` or `getUrlableOrFail()` methods, present in the `Zbiller\Url\Models\Url` class.
+Once created, you can fetch your Eloquent model instance corresponding to the URL visited by using the `getUrlable()` or `getUrlableOrFail()` methods, present in the `Neurony\Url\Models\Url` class.
 
 ```php
 <?php
@@ -101,7 +97,7 @@ Once created, you can fetch your Eloquent model instance corresponding to the UR
 namespace App\Controllers;
 
 use Illuminate\Routing\Controller;
-use Zbiller\Url\Models\Url;
+use Neurony\Url\Models\Url;
 
 class PostsController extends Controller
 {
@@ -263,17 +259,17 @@ $model = YourModel::first();
 $model->getUri(); // returns "your-model-slug"
 ```
 
-You can access the `Zbiller\Url\Models\Url` instance from your Eloquent models using the `url` relationp:
+You can access the `Neurony\Url\Models\Url` instance from your Eloquent models using the `url` relationp:
 
 ```php
 $model = YourModel::first();
-$url = $model->url; // returns a loaded instance of the Zbiller\Url\Models\Url model
+$url = $model->url; // returns a loaded instance of the Neurony\Url\Models\Url model
 ```
 
-You can access your Eloquent model instance from the `Zbiller\Url\Models\Url` model using the `urlable` relation:
+You can access your Eloquent model instance from the `Neurony\Url\Models\Url` model using the `urlable` relation:
 
 ```php
-use Zbiller\Url\Models\Url;
+use Neurony\Url\Models\Url;
 
 $url = Url::first();
 $model = $url->urlable; // returns a loaded instance of your Eloquent model
@@ -282,7 +278,7 @@ $model = $url->urlable; // returns a loaded instance of your Eloquent model
 You can find a specific URL by using the following query scope:
 
 ```php
-use Zbiller\Url\Models\Url;
+use Neurony\Url\Models\Url;
 
 $url = Url::whereUrl('some-url')->first();
 ```

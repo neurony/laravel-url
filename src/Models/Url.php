@@ -1,11 +1,11 @@
 <?php
 
-namespace Zbiller\Url\Models;
+namespace Neurony\Url\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Database\Eloquent\Builder;
-use Zbiller\Url\Contracts\UrlModelContract;
+use Neurony\Url\Contracts\UrlModelContract;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 

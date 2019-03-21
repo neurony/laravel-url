@@ -1,8 +1,8 @@
 <?php
 
-namespace Zbiller\Url\Tests\Controllers;
+namespace Neurony\Url\Tests\Controllers;
 
-use Zbiller\Url\Models\Url;
+use Neurony\Url\Models\Url;
 use Illuminate\Routing\Controller;
 
 class UrlsController extends Controller

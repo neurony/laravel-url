@@ -1,6 +1,6 @@
 <?php
 
-namespace Zbiller\Url\Contracts;
+namespace Neurony\Url\Contracts;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;

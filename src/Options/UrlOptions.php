@@ -1,6 +1,6 @@
 <?php
 
-namespace Zbiller\Url\Options;
+namespace Neurony\Url\Options;
 
 use Exception;
 
@@ -95,7 +95,7 @@ class UrlOptions
     }
 
     /**
-     * Set the $urlRoute to work with in the Zbiller\Url\Traits\HasUrl trait.
+     * Set the $urlRoute to work with in the Neurony\Url\Traits\HasUrl trait.
      *
      * @param string $controller
      * @param string $action
@@ -110,7 +110,7 @@ class UrlOptions
     }
 
     /**
-     * Set the $fromField to work with in the Zbiller\Url\Traits\HasUrl trait.
+     * Set the $fromField to work with in the Neurony\Url\Traits\HasUrl trait.
      *
      * @param string|array|callable $field
      * @return UrlOptions
@@ -123,7 +123,7 @@ class UrlOptions
     }
 
     /**
-     * Set the $toField to work with in the Zbiller\Url\Traits\HasUrl trait.
+     * Set the $toField to work with in the Neurony\Url\Traits\HasUrl trait.
      *
      * @param string $field
      * @return UrlOptions
@@ -136,7 +136,7 @@ class UrlOptions
     }
 
     /**
-     * Set the $urlPrefix to work with in the Zbiller\Url\Traits\HasUrl trait.
+     * Set the $urlPrefix to work with in the Neurony\Url\Traits\HasUrl trait.
      *
      * @param string|array|callable $prefix
      * @return UrlOptions
@@ -149,7 +149,7 @@ class UrlOptions
     }
 
     /**
-     * Set the $urlSuffix to work with in the Zbiller\Url\Traits\HasUrl trait.
+     * Set the $urlSuffix to work with in the Neurony\Url\Traits\HasUrl trait.
      *
      * @param string|array|callable $suffix
      * @return UrlOptions
@@ -162,7 +162,7 @@ class UrlOptions
     }
 
     /**
-     * Set the $urlGlue to work with in the Zbiller\Url\Traits\HasUrl trait.
+     * Set the $urlGlue to work with in the Neurony\Url\Traits\HasUrl trait.
      *
      * @param string $glue
      * @return UrlOptions
@@ -175,7 +175,7 @@ class UrlOptions
     }
 
     /**
-     * Set the $cascadeUpdate to work with in the Zbiller\Url\Traits\HasUrl trait.
+     * Set the $cascadeUpdate to work with in the Neurony\Url\Traits\HasUrl trait.
      *
      * @return UrlOptions
      */

@@ -1,10 +1,10 @@
 <?php
 
-namespace Zbiller\Url\Tests;
+namespace Neurony\Url\Tests;
 
-use Zbiller\Url\Options\UrlOptions;
-use Zbiller\Url\Tests\Models\UrlModel;
-use Zbiller\Url\Exceptions\UrlException;
+use Neurony\Url\Options\UrlOptions;
+use Neurony\Url\Tests\Models\UrlModel;
+use Neurony\Url\Exceptions\UrlException;
 
 class HasUrlTest extends TestCase
 {

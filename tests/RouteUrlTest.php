@@ -1,9 +1,9 @@
 <?php
 
-namespace Zbiller\Url\Tests;
+namespace Neurony\Url\Tests;
 
 use Illuminate\Support\Facades\Route;
-use Zbiller\Url\Tests\Models\UrlModel;
+use Neurony\Url\Tests\Models\UrlModel;
 
 class RouteUrlTest extends TestCase
 {

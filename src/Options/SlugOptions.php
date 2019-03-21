@@ -1,6 +1,6 @@
 <?php
 
-namespace Zbiller\Url\Options;
+namespace Neurony\Url\Options;
 
 use Exception;
 
@@ -84,7 +84,7 @@ class SlugOptions
     }
 
     /**
-     * Set the $fromField to work with in the Zbiller\Url\Traits\HasSlug trait.
+     * Set the $fromField to work with in the Neurony\Url\Traits\HasSlug trait.
      *
      * @param string|array|callable $field
      * @return SlugOptions
@@ -101,7 +101,7 @@ class SlugOptions
     }
 
     /**
-     * Set the $toField to work with in the Zbiller\Url\Traits\HasSlug trait.
+     * Set the $toField to work with in the Neurony\Url\Traits\HasSlug trait.
      *
      * @param string $field
      * @return SlugOptions
@@ -114,7 +114,7 @@ class SlugOptions
     }
 
     /**
-     * Set the $uniqueSlugs to work with in the Zbiller\Url\Traits\HasSlug trait.
+     * Set the $uniqueSlugs to work with in the Neurony\Url\Traits\HasSlug trait.
      *
      * @return SlugOptions
      */
@@ -126,7 +126,7 @@ class SlugOptions
     }
 
     /**
-     * Set the $slugSeparator to work with in the Zbiller\Url\Traits\HasSlug trait.
+     * Set the $slugSeparator to work with in the Neurony\Url\Traits\HasSlug trait.
      *
      * @param string $separator
      * @return SlugOptions
@@ -139,7 +139,7 @@ class SlugOptions
     }
 
     /**
-     * Set the $slugLanguage to work with in the Zbiller\Url\Traits\HasSlug trait.
+     * Set the $slugLanguage to work with in the Neurony\Url\Traits\HasSlug trait.
      *
      * @param string $separator
      * @return SlugOptions
@@ -152,7 +152,7 @@ class SlugOptions
     }
 
     /**
-     * Set the $generateSlugOnCreate to work with in the Zbiller\Url\Traits\HasSlug trait.
+     * Set the $generateSlugOnCreate to work with in the Neurony\Url\Traits\HasSlug trait.
      *
      * @return SlugOptions
      */
@@ -164,7 +164,7 @@ class SlugOptions
     }
 
     /**
-     * Set the $generateSlugOnUpdate to work with in the Zbiller\Url\Traits\HasSlug trait.
+     * Set the $generateSlugOnUpdate to work with in the Neurony\Url\Traits\HasSlug trait.
      *
      * @return SlugOptions
      */

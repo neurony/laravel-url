@@ -1,5 +1,5 @@
 {
-    "name": "zbiller/laravel-url",
+    "name": "neurony/laravel-url",
     "description": "Generate custom URLs for any Eloquent model (Laravel 5.7 and up).",
     "license": "MIT",
     "keywords": [
@@ -28,12 +28,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Zbiller\\Url\\": "src/"
+            "Neurony\\Url\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Zbiller\\Url\\Tests\\": "tests"
+            "Neurony\\Url\\Tests\\": "tests"
         },
         "classmap": [
             "tests/TestCase.php"
@@ -48,7 +48,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Zbiller\\Url\\ServiceProvider"
+                "Neurony\\Url\\ServiceProvider"
             ]
         }
     }

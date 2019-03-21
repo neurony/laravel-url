@@ -1,10 +1,10 @@
 <?php
 
-namespace Zbiller\Url\Tests;
+namespace Neurony\Url\Tests;
 
-use Zbiller\Url\Options\SlugOptions;
-use Zbiller\Url\Tests\Models\SlugModel;
-use Zbiller\Url\Exceptions\SlugException;
+use Neurony\Url\Options\SlugOptions;
+use Neurony\Url\Tests\Models\SlugModel;
+use Neurony\Url\Exceptions\SlugException;
 
 class HasSlugTest extends TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Zbiller\Url\Exceptions;
+namespace Neurony\Url\Exceptions;
 
 use Exception;
 

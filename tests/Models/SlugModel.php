@@ -1,9 +1,9 @@
 <?php
 
-namespace Zbiller\Url\Tests\Models;
+namespace Neurony\Url\Tests\Models;
 
-use Zbiller\Url\Traits\HasSlug;
-use Zbiller\Url\Options\SlugOptions;
+use Neurony\Url\Traits\HasSlug;
+use Neurony\Url\Options\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
 
 class SlugModel extends Model

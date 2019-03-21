@@ -1,12 +1,12 @@
 <?php
 
-namespace Zbiller\Url;
+namespace Neurony\Url;
 
-use Zbiller\Url\Models\Url;
+use Neurony\Url\Models\Url;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Routing\Route as Router;
-use Zbiller\Url\Contracts\UrlModelContract;
+use Neurony\Url\Contracts\UrlModelContract;
 use Illuminate\Routing\ControllerDispatcher;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
