@@ -1,5 +1,9 @@
 # Generate custom URLs for any Eloquent model
 
+[![Build Status](https://travis-ci.org/Neurony/laravel-url.svg?branch=master)](https://travis-ci.org/Neurony/laravel-url)
+[![StyleCI](https://github.styleci.io/repos/162329525/shield?branch=master)](https://github.styleci.io/repos/162329525)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Neurony/laravel-url/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Neurony/laravel-url/?branch=master)
+
 - [Overview](#overview)   
 - [Installation](#installation)   
 - [Usage](#usage)   
@@ -283,9 +287,14 @@ use Neurony\Url\Models\Url;
 $url = Url::whereUrl('some-url')->first();
 ```
 
+# Credits
+
+- [Andrei Badea](https://github.com/zbiller)
+- [All Contributors](../../contributors)
+
 # Security
 
-If you discover any security related issues, please email zbiller@gmail.com instead of using the issue tracker.
+If you discover any security related issues, please email andrei.badea@neurony.ro instead of using the issue tracker.
 
 # License
 
