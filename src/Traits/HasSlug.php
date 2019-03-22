@@ -2,6 +2,7 @@
 
 namespace Neurony\Url\Traits;
 
+use Illuminate\Support\Str;
 use Neurony\Url\Options\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
 use Neurony\Url\Exceptions\SlugException;
@@ -104,12 +105,12 @@ trait HasSlug
         if ($this->slugHasChanged()) {
             $source = $this->getAttribute($this->slugOptions->toField);
 
-            return str_is('/', $source) ? $source : str_slug($source);
+            return Str::is('/', $source) ? $source : Str::slug($source);
         }
 
         $source = $this->getSlugSource();
 
-        return str_is('/', $source) ? $source : str_slug(
+        return Str::is('/', $source) ? $source : Str::slug(
             $source, $this->slugOptions->slugSeparator, $this->slugOptions->slugLanguage
         );
     }

@@ -3,6 +3,7 @@
 namespace Neurony\Url\Traits;
 
 use Exception;
+use Illuminate\Support\Str;
 use Neurony\Url\Models\Url;
 use Illuminate\Support\Facades\DB;
 use Neurony\Url\Options\UrlOptions;
@@ -258,9 +259,9 @@ trait HasUrl
         $suffix = $this->buildUrlSegment('suffix');
 
         return
-            (str_is('/', $prefix) ? '' : ($prefix ? $prefix.$this->urlOptions->urlGlue : '')).
+            (Str::is('/', $prefix) ? '' : ($prefix ? $prefix.$this->urlOptions->urlGlue : '')).
             $this->getAttribute($this->urlOptions->toField).
-            (str_is('/', $suffix) ? '' : ($suffix ? $this->urlOptions->urlGlue.$suffix : ''));
+            (Str::is('/', $suffix) ? '' : ($suffix ? $this->urlOptions->urlGlue.$suffix : ''));
     }
 
     /**
