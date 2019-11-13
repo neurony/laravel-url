@@ -100,6 +100,7 @@ trait HasUrl
         if ($this->url && $this->url->exists) {
             return url($this->url->url, [], $secure);
         }
+        return null;
     }
 
     /**
