@@ -2,8 +2,8 @@
 
 namespace Neurony\Url\Tests\Controllers;
 
-use Neurony\Url\Models\Url;
 use Illuminate\Routing\Controller;
+use Neurony\Url\Models\Url;
 
 class UrlsController extends Controller
 {

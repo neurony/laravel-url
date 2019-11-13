@@ -3,15 +3,15 @@
 namespace Neurony\Url\Traits;
 
 use Exception;
-use Illuminate\Support\Str;
-use Neurony\Url\Models\Url;
-use Illuminate\Support\Facades\DB;
-use Neurony\Url\Options\UrlOptions;
-use Neurony\Url\Options\SlugOptions;
-use Illuminate\Database\Eloquent\Model;
-use Neurony\Url\Exceptions\UrlException;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Neurony\Url\Exceptions\UrlException;
+use Neurony\Url\Models\Url;
+use Neurony\Url\Options\SlugOptions;
+use Neurony\Url\Options\UrlOptions;
 
 trait HasUrl
 {

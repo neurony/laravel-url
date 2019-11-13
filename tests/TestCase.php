@@ -2,11 +2,11 @@
 
 namespace Neurony\Url\Tests;
 
-use Neurony\Url\Tests\Models\UrlModel;
-use Neurony\Url\Tests\Models\SlugModel;
-use Illuminate\Database\Schema\Blueprint;
-use Orchestra\Testbench\TestCase as Orchestra;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Database\Schema\Blueprint;
+use Neurony\Url\Tests\Models\SlugModel;
+use Neurony\Url\Tests\Models\UrlModel;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
 {
