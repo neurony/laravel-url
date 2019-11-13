@@ -2,6 +2,7 @@
 
 namespace Neurony\Url\Tests;
 
+use Illuminate\Support\Str;
 use Neurony\Url\Exceptions\UrlException;
 use Neurony\Url\Options\UrlOptions;
 use Neurony\Url\Tests\Models\UrlModel;
@@ -50,8 +51,8 @@ class HasUrlTest extends TestCase
         $this->createUrlModel();
 
         $this->assertTrue(
-            starts_with($this->urlModel->getUrl(), 'http') &&
-            ends_with($this->urlModel->getUrl(), '/'.$this->urlModel->getUri())
+            Str::startsWith($this->urlModel->getUrl(), 'http') &&
+            Str::endsWith($this->urlModel->getUrl(), '/'.$this->urlModel->getUri())
         );
     }
 
