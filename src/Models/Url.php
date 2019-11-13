@@ -2,12 +2,12 @@
 
 namespace Neurony\Url\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Database\Eloquent\Builder;
-use Neurony\Url\Contracts\UrlModelContract;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Support\Facades\Request;
+use Neurony\Url\Contracts\UrlModelContract;
 
 class Url extends Model implements UrlModelContract
 {

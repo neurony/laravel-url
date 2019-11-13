@@ -2,9 +2,9 @@
 
 namespace Neurony\Url\Tests\Models;
 
-use Neurony\Url\Traits\HasSlug;
-use Neurony\Url\Options\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
+use Neurony\Url\Options\SlugOptions;
+use Neurony\Url\Traits\HasSlug;
 
 class SlugModel extends Model
 {

@@ -2,10 +2,10 @@
 
 namespace Neurony\Url\Tests\Models;
 
-use Neurony\Url\Traits\HasUrl;
-use Neurony\Url\Options\UrlOptions;
 use Illuminate\Database\Eloquent\Model;
+use Neurony\Url\Options\UrlOptions;
 use Neurony\Url\Tests\Controllers\UrlsController;
+use Neurony\Url\Traits\HasUrl;
 
 class UrlModel extends Model
 {

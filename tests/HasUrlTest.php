@@ -2,9 +2,9 @@
 
 namespace Neurony\Url\Tests;
 
+use Neurony\Url\Exceptions\UrlException;
 use Neurony\Url\Options\UrlOptions;
 use Neurony\Url\Tests\Models\UrlModel;
-use Neurony\Url\Exceptions\UrlException;
 
 class HasUrlTest extends TestCase
 {

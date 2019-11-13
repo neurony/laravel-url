@@ -2,9 +2,9 @@
 
 namespace Neurony\Url\Tests;
 
+use Neurony\Url\Exceptions\SlugException;
 use Neurony\Url\Options\SlugOptions;
 use Neurony\Url\Tests\Models\SlugModel;
-use Neurony\Url\Exceptions\SlugException;
 
 class HasSlugTest extends TestCase
 {

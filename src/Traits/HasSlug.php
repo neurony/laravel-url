@@ -2,10 +2,10 @@
 
 namespace Neurony\Url\Traits;
 
-use Illuminate\Support\Str;
-use Neurony\Url\Options\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use Neurony\Url\Exceptions\SlugException;
+use Neurony\Url\Options\SlugOptions;
 
 trait HasSlug
 {
