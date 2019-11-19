@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-url` will be documented in this file
 
+## 3.0.0 - 2019/13/11
+
+- Support Laravel 6.0
+
 ## 2.1.2 - 2019/19/11
 
 - Fix getUrl method returning void when url relationship is not present
